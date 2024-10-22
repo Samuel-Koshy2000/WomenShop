@@ -24,3 +24,13 @@ CREATE TABLE `products` (
   PRIMARY KEY (`id`),
   KEY `idx_name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+SQL query for discount database
+CREATE TABLE `discount` (
+  `id` varchar(45) NOT NULL,
+  `discount` tinyint DEFAULT NULL,
+  `product_name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_product_name` (`product_name`),
+  CONSTRAINT `fk_product_name` FOREIGN KEY (`product_name`) REFERENCES `products` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
