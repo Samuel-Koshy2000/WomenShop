@@ -6,7 +6,9 @@ in ProductDAO:
 
 
 TO DO:
-code the applyDiscount & removeDiscount
+code the applyDiscount & removeDiscount -> changing the discount column to discount column (decimal), first the discount = 0, then, when applying a discount, discount is updated from 0 to x price thanks to the sell_price and a set amount of discount based on the category. to stop a discount, we just set discount = 0.
+To make this work, we need to modify the sellProduct method to check if discount = 0 or not. if discount = 0, we use sell_price, else, we use discount.
+fix capital/incomes/costs
 add size and shoe_size for clothes & shoes category
 Add size & shoe_size column too. 
 
@@ -18,19 +20,9 @@ CREATE TABLE `products` (
   `purchase_price` decimal(10,2) DEFAULT NULL,
   `sell_price` decimal(10,2) DEFAULT NULL,
   `stock` int DEFAULT NULL,
-  `discount` tinyint(1) DEFAULT '0',
+  `discount` decimal(10,2) DEFAULT '0.00',
   `incomes` decimal(10,2) DEFAULT '0.00',
   `costs` decimal(10,2) DEFAULT '0.00',
   PRIMARY KEY (`id`),
   KEY `idx_name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-SQL query for discount database
-CREATE TABLE `discount` (
-  `id` varchar(45) NOT NULL,
-  `discount` tinyint DEFAULT NULL,
-  `product_name` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_product_name` (`product_name`),
-  CONSTRAINT `fk_product_name` FOREIGN KEY (`product_name`) REFERENCES `products` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
