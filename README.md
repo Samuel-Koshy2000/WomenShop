@@ -6,10 +6,9 @@ in ProductDAO:
 
 
 TO DO:
-change instances of price to purchase_price / sell_price depending on the case
 code the applyDiscount & removeDiscount
 add size and shoe_size for clothes & shoes category
-Add size column too. 
+Add size & shoe_size column too. 
 
 SQL query for product database (need to add size & shoe_size)
 CREATE TABLE `products` (
