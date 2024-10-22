@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.proto.ProductController">
+
+    <HBox spacing="10">
+        <Label fx:id="capitalLabel" text="Capital: $0.00"/>
+        <Region prefWidth="50"/> <!-- Adjust width as needed for tab-like spacing -->
+        <Label fx:id="incomeLabel" text="Income: $0.00"/>
+        <Region prefWidth="50"/> <!-- Adjust width as needed for tab-like spacing -->
+        <Label fx:id="costLabel" text="Cost: $0.00"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <TextField fx:id="nameField" promptText="Name"/>
+        <TextField fx:id="categoryField" promptText="Category"/>
+        <TextField fx:id="priceField" promptText="Price"/>
+        <TextField fx:id="stockField" promptText="Stock"/>
+    </HBox>
+
+
+    <TableView fx:id="productTable">
+        <columns>
+            <TableColumn text="Name" fx:id="nameColumn"/>
+            <TableColumn text="Category" fx:id="categoryColumn"/>
+            <TableColumn text="Price" fx:id="priceColumn"/>
+            <TableColumn text="Stock" fx:id="stockColumn"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10">
+        <Button text="Add Product" onAction="#handleAddProduct"/>
+        <Button text="Update Product" onAction="#handleSaveUpdatedProduct"/>
+        <Button text="Delete Product" onAction="#handleDeleteProduct"/>
+        <Button text="Purchase Product" onAction="#handlePurchaseProduct"/>
+        <Button text="Sell Product" onAction="#handleSellProduct"/>
+        <Button text="Apply Discount" onAction="#handleApplyDiscount"/>
+        <Button text="Remove Discount" onAction="#handleRemoveDiscount"/>
+    </HBox>
+</VBox>
