@@ -10,3 +10,18 @@ change instances of price to purchase_price / sell_price depending on the case
 code the applyDiscount & removeDiscount
 add size and shoe_size for clothes & shoes category
 Add size column too. 
+
+SQL query for product database (need to add size & shoe_size)
+CREATE TABLE `products` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `category` varchar(100) DEFAULT NULL,
+  `purchase_price` decimal(10,2) DEFAULT NULL,
+  `sell_price` decimal(10,2) DEFAULT NULL,
+  `stock` int DEFAULT NULL,
+  `discount` tinyint(1) DEFAULT '0',
+  `incomes` decimal(10,2) DEFAULT '0.00',
+  `costs` decimal(10,2) DEFAULT '0.00',
+  PRIMARY KEY (`id`),
+  KEY `idx_name` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
