@@ -12,7 +12,15 @@ fix capital/incomes/costs
 add size and shoe_size for clothes & shoes category
 Add size & shoe_size column too. 
 
-SQL query for product database (need to add size & shoe_size)
+SQL query for product finances table
+CREATE TABLE `finances` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `capital` decimal(10,0) DEFAULT '1000',
+  `income` decimal(10,0) DEFAULT NULL,
+  `costs` decimal(10,0) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 CREATE TABLE `products` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -20,9 +28,16 @@ CREATE TABLE `products` (
   `purchase_price` decimal(10,2) DEFAULT NULL,
   `sell_price` decimal(10,2) DEFAULT NULL,
   `stock` int DEFAULT NULL,
-  `discount` decimal(10,2) DEFAULT '0.00',
-  `incomes` decimal(10,2) DEFAULT '0.00',
-  `costs` decimal(10,2) DEFAULT '0.00',
+  `discount` decimal(10,0) DEFAULT NULL,
+  `size` int DEFAULT NULL,
+  `shoe_size` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
